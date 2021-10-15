@@ -14,28 +14,28 @@ contract SimpleStorage {
         uint256 favoriteNumber;
         string name;
     }
-    
+
     // People public people = People({favoriteNumber: 5, name: 'ge song'});
-    
+
     // array
     People[] public people;
     // like hashmap
     mapping(string => uint256) public nameToFavoriteNumber;
-    
+
     function store(uint256 _favoriteNumber) public {
         favoriteNumber = _favoriteNumber;
     }
-    
+
     // view and pure don't start a transaction.
-    function retrieve() public view returns (uint256){
+    function retrieve() public view returns (uint256) {
         return favoriteNumber;
     }
-    
+
     // // pure: just do some math.
     // function retrieve2() public pure {
     //     favoriteNumber = 1 + favoriteNumber;
     // }
-    
+
     // memory: just in this transaction
     // storage: live forever
     function addPerson(string memory _name, uint256 _favoriteNumber) public {
